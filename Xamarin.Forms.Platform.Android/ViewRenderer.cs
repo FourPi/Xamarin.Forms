@@ -177,7 +177,9 @@ namespace Xamarin.Forms.Platform.Android
 			if (_defaultContentDescription == null)
 				_defaultContentDescription = Control.ContentDescription;
 
-			var elemValue = string.Join(" ", (string)Element.GetValue(Accessibility.NameProperty), (string)Element.GetValue(Accessibility.HintProperty));
+			var name = (string)Element.GetValue(Accessibility.NameProperty);
+			var hint = (string)Element.GetValue(Accessibility.HintProperty);
+			var elemValue = (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(hint) ? string.Empty : string.Join(" ", name, hint));
 
 			if (!string.IsNullOrWhiteSpace(elemValue))
 				Control.ContentDescription = elemValue;
@@ -223,7 +225,9 @@ namespace Xamarin.Forms.Platform.Android
 			if (_defaultHint == null)
 				_defaultHint = textView.Hint;
 
-			var elemValue = string.Join(". ", (string)Element.GetValue(Accessibility.NameProperty), (string)Element.GetValue(Accessibility.HintProperty));
+			var name = (string)Element.GetValue(Accessibility.NameProperty);
+			var hint = (string)Element.GetValue(Accessibility.HintProperty);
+			var elemValue = (string.IsNullOrWhiteSpace(name) && string.IsNullOrWhiteSpace(hint) ? string.Empty : string.Join(". ", name, hint));
 
 			if (!string.IsNullOrWhiteSpace(elemValue))
 				textView.Hint = elemValue;
