@@ -102,6 +102,7 @@
     <Compile Include="PlatformConfiguration\iOSSpecific\BlurEffectStyle.cs" />
     <Compile Include="PlatformConfiguration\iOSSpecific\Entry.cs" />
     <Compile Include="PlatformConfiguration\iOSSpecific\NavigationPage.cs" />
+    <Compile Include="PlatformConfiguration\iOSSpecific\ScrollView.cs" />
     <Compile Include="PlatformConfiguration\iOSSpecific\Picker.cs" />
     <Compile Include="PlatformConfiguration\iOSSpecific\StatusBarTextColorMode.cs" />
     <Compile Include="PlatformConfiguration\iOSSpecific\Page.cs" />
@@ -455,8 +456,10 @@
     <Compile Include="PlatformConfiguration\macOSSpecific\TabbedPage.cs" />
     <Compile Include="PlatformConfiguration\macOSSpecific\TabsStyle.cs" />
     <Compile Include="FontElement.cs" />
+    <Compile Include="PlatformConfiguration\AndroidSpecific\ListView.cs" />
     <Compile Include="ITextElement.cs" />
     <Compile Include="TextElement.cs" />
+    <Compile Include="Internals\ResourceLoader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

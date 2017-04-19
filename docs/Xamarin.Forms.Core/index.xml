@@ -478,6 +478,7 @@
       <Type Name="ReflectionExtensions" Kind="Class" />
       <Type Name="Registrar" Kind="Class" />
       <Type Name="Registrar`1" DisplayName="Registrar&lt;TRegistrable&gt;" Kind="Class" />
+      <Type Name="ResourceLoader" Kind="Class" />
       <Type Name="ResourcesChangedEventArgs" Kind="Class" />
       <Type Name="SetValueFlags" Kind="Enumeration" />
       <Type Name="TableModel" Kind="Class" />
@@ -496,6 +497,7 @@
     </Namespace>
     <Namespace Name="Xamarin.Forms.PlatformConfiguration.AndroidSpecific">
       <Type Name="Application" Kind="Class" />
+      <Type Name="ListView" Kind="Class" />
       <Type Name="TabbedPage" Kind="Class" />
       <Type Name="WindowSoftInputModeAdjust" Kind="Enumeration" />
     </Namespace>
@@ -508,6 +510,7 @@
       <Type Name="NavigationPage" Kind="Class" />
       <Type Name="Page" Kind="Class" />
       <Type Name="Picker" Kind="Class" />
+      <Type Name="ScrollView" Kind="Class" />
       <Type Name="StatusBarHiddenMode" Kind="Enumeration" />
       <Type Name="StatusBarTextColorMode" Kind="Enumeration" />
       <Type Name="UIStatusBarAnimation" Kind="Enumeration" />
@@ -1058,7 +1061,7 @@
           <param name="self">To be added.</param>
           <param name="item">To be added.</param>
           <param name="container">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.DataTemplateExtensions" Member="M:Xamarin.Forms.Internals.DataTemplateExtensions.CreateContent(Xamarin.Forms.DataTemplate,System.Object,Xamarin.Forms.BindableObject)" />
       </Member>
@@ -1079,7 +1082,7 @@
         </Parameters>
         <Docs>
           <param name="orientation">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.DeviceOrientationExtensions" Member="M:Xamarin.Forms.Internals.DeviceOrientationExtensions.IsLandscape(Xamarin.Forms.Internals.DeviceOrientation)" />
       </Member>
@@ -1100,7 +1103,7 @@
         </Parameters>
         <Docs>
           <param name="orientation">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.DeviceOrientationExtensions" Member="M:Xamarin.Forms.Internals.DeviceOrientationExtensions.IsPortrait(Xamarin.Forms.Internals.DeviceOrientation)" />
       </Member>
@@ -1127,7 +1130,7 @@
           <typeparam name="T">To be added.</typeparam>
           <param name="enumeration">To be added.</param>
           <param name="action">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.EnumerableExtensions" Member="M:Xamarin.Forms.Internals.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})" />
       </Member>
@@ -1158,7 +1161,7 @@
           <typeparam name="T">To be added.</typeparam>
           <param name="gestures">To be added.</param>
           <param name="predicate">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.EnumerableExtensions" Member="M:Xamarin.Forms.Internals.EnumerableExtensions.GetGesturesFor``1(System.Collections.Generic.IEnumerable{Xamarin.Forms.IGestureRecognizer},System.Func{``0,System.Boolean})" />
       </Member>
@@ -1185,7 +1188,7 @@
           <typeparam name="T">To be added.</typeparam>
           <param name="enumerable">To be added.</param>
           <param name="item">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.EnumerableExtensions" Member="M:Xamarin.Forms.Internals.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
@@ -1212,7 +1215,7 @@
           <typeparam name="T">To be added.</typeparam>
           <param name="enumerable">To be added.</param>
           <param name="predicate">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.EnumerableExtensions" Member="M:Xamarin.Forms.Internals.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})" />
       </Member>
@@ -1239,7 +1242,7 @@
           <typeparam name="T">To be added.</typeparam>
           <param name="enumerable">To be added.</param>
           <param name="item">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.EnumerableExtensions" Member="M:Xamarin.Forms.Internals.EnumerableExtensions.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)" />
       </Member>
@@ -1343,7 +1346,7 @@
           <param name="self">To be added.</param>
           <param name="min">To be added.</param>
           <param name="max">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.NumericExtensions" Member="M:Xamarin.Forms.Internals.NumericExtensions.Clamp(System.Double,System.Double,System.Double)" />
       </Member>
@@ -1368,7 +1371,7 @@
           <param name="self">To be added.</param>
           <param name="min">To be added.</param>
           <param name="max">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.NumericExtensions" Member="M:Xamarin.Forms.Internals.NumericExtensions.Clamp(System.Int32,System.Int32,System.Int32)" />
       </Member>
@@ -1391,7 +1394,7 @@
         <Docs>
           <param name="type">To be added.</param>
           <param name="predicate">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.GetField(System.Type,System.Func{System.Reflection.FieldInfo,System.Boolean})" />
       </Member>
@@ -1414,7 +1417,7 @@
         <Docs>
           <param name="type">To be added.</param>
           <param name="name">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.GetField(System.Type,System.String)" />
       </Member>
@@ -1435,7 +1438,7 @@
         </Parameters>
         <Docs>
           <param name="type">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.GetFields(System.Type)" />
       </Member>
@@ -1456,7 +1459,7 @@
         </Parameters>
         <Docs>
           <param name="type">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.GetProperties(System.Type)" />
       </Member>
@@ -1479,7 +1482,7 @@
         <Docs>
           <param name="type">To be added.</param>
           <param name="name">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.GetProperty(System.Type,System.String)" />
       </Member>
@@ -1502,7 +1505,7 @@
         <Docs>
           <param name="self">To be added.</param>
           <param name="c">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.IsAssignableFrom(System.Type,System.Type)" />
       </Member>
@@ -1525,7 +1528,7 @@
         <Docs>
           <param name="self">To be added.</param>
           <param name="o">To be added.</param>
-          <summary>To be added.</summary>
+          <summary>For internal use by the Xamarin.Forms platform.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.Internals.ReflectionExtensions" Member="M:Xamarin.Forms.Internals.ReflectionExtensions.IsInstanceOfType(System.Type,System.Object)" />
       </Member>
@@ -1572,8 +1575,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Returns a Boolean value that tells whether the appearing event is sent when the application resumes.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.GetSendAppearingEventOnResume(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application})" />
       </Member>
@@ -1593,8 +1596,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Returns a Boolean value that tells whether the disappearing event is sent when the application is paused.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.GetSendDisappearingEventOnPause(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application})" />
       </Member>
@@ -1614,8 +1617,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Returns a Boolean value that tells whether the keyboard state should be preserved when the application resumes.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.GetShouldPreserveKeyboardOnResume(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application})" />
       </Member>
@@ -1636,9 +1639,9 @@
           <Parameter Name="value" Type="System.Boolean" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <param name="value">The new property value to assign.</param>
+          <summary>Sets a value that controls whether the appearing event is sent when the application resumes.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.SendAppearingEventOnResume(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application},System.Boolean)" />
       </Member>
@@ -1659,9 +1662,9 @@
           <Parameter Name="value" Type="System.Boolean" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <param name="value">The new property value to assign.</param>
+          <summary>Sets a Boolean value that controls whether the disappearing event is sent when the application is paused.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.SendDisappearingEventOnPause(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application},System.Boolean)" />
       </Member>
@@ -1682,9 +1685,9 @@
           <Parameter Name="value" Type="System.Boolean" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <param name="value">The new property value to assign.</param>
+          <summary>Sets a Boolean value that controls whether the keyboard state should be preserved when the application resumes.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat.Application.ShouldPreserveKeyboardOnResume(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application},System.Boolean)" />
       </Member>
@@ -1731,6 +1734,50 @@
           <summary>Sets a value that controls whether the soft input mode of the provided platform configuration pans or resizes its content to allow the display of the on-screen input UI.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.Application" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.Application.UseWindowSoftInputModeAdjust(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.Application},Xamarin.Forms.PlatformConfiguration.AndroidSpecific.WindowSoftInputModeAdjust)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Xamarin.Forms.IPlatformElementConfiguration`2" />
+      </Targets>
+      <Member MemberName="IsFastScrollEnabled">
+        <MemberSignature Language="C#" Value="public static bool IsFastScrollEnabled (this Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt; config);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool IsFastScrollEnabled(class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.Android, class Xamarin.Forms.ListView&gt; config) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="config">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ListView" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ListView.IsFastScrollEnabled(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Xamarin.Forms.IPlatformElementConfiguration`2" />
+      </Targets>
+      <Member MemberName="SetIsFastScrollEnabled">
+        <MemberSignature Language="C#" Value="public static Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt; SetIsFastScrollEnabled (this Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt; config, bool value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.Android, class Xamarin.Forms.ListView&gt; SetIsFastScrollEnabled(class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.Android, class Xamarin.Forms.ListView&gt; config, bool value) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView&gt;" RefType="this" />
+          <Parameter Name="value" Type="System.Boolean" />
+        </Parameters>
+        <Docs>
+          <param name="config">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ListView" Member="M:Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ListView.SetIsFastScrollEnabled(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.Android,Xamarin.Forms.ListView},System.Boolean)" />
       </Member>
     </ExtensionMethod>
     <ExtensionMethod>
@@ -1878,8 +1925,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.Entry&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Returns a Boolean value that tells whether the entry control automatically adjusts the font size..</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.iOSSpecific.Entry" Member="M:Xamarin.Forms.PlatformConfiguration.iOSSpecific.Entry.AdjustsFontSizeToFitWidth(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.Entry})" />
       </Member>
@@ -2215,6 +2262,50 @@
       <Targets>
         <Target Type="T:Xamarin.Forms.IPlatformElementConfiguration`2" />
       </Targets>
+      <Member MemberName="SetShouldDelayContentTouches">
+        <MemberSignature Language="C#" Value="public static Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt; SetShouldDelayContentTouches (this Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt; config, bool value);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.iOS, class Xamarin.Forms.ScrollView&gt; SetShouldDelayContentTouches(class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.iOS, class Xamarin.Forms.ScrollView&gt; config, bool value) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt;</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt;" RefType="this" />
+          <Parameter Name="value" Type="System.Boolean" />
+        </Parameters>
+        <Docs>
+          <param name="config">To be added.</param>
+          <param name="value">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Xamarin.Forms.PlatformConfiguration.iOSSpecific.ScrollView" Member="M:Xamarin.Forms.PlatformConfiguration.iOSSpecific.ScrollView.SetShouldDelayContentTouches(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView},System.Boolean)" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Xamarin.Forms.IPlatformElementConfiguration`2" />
+      </Targets>
+      <Member MemberName="ShouldDelayContentTouches">
+        <MemberSignature Language="C#" Value="public static bool ShouldDelayContentTouches (this Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt; config);" />
+        <MemberSignature Language="ILAsm" Value=".method public static hidebysig bool ShouldDelayContentTouches(class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.iOS, class Xamarin.Forms.ScrollView&gt; config) cil managed" />
+        <MemberType>ExtensionMethod</MemberType>
+        <ReturnValue>
+          <ReturnType>System.Boolean</ReturnType>
+        </ReturnValue>
+        <Parameters>
+          <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView&gt;" RefType="this" />
+        </Parameters>
+        <Docs>
+          <param name="config">To be added.</param>
+          <summary>To be added.</summary>
+        </Docs>
+        <Link Type="Xamarin.Forms.PlatformConfiguration.iOSSpecific.ScrollView" Member="M:Xamarin.Forms.PlatformConfiguration.iOSSpecific.ScrollView.ShouldDelayContentTouches(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.ScrollView})" />
+      </Member>
+    </ExtensionMethod>
+    <ExtensionMethod>
+      <Targets>
+        <Target Type="T:Xamarin.Forms.IPlatformElementConfiguration`2" />
+      </Targets>
       <Member MemberName="GetBlurEffect">
         <MemberSignature Language="C#" Value="public static Xamarin.Forms.PlatformConfiguration.iOSSpecific.BlurEffectStyle GetBlurEffect (this Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.iOS,Xamarin.Forms.VisualElement&gt; config);" />
         <MemberSignature Language="ILAsm" Value=".method public static hidebysig valuetype Xamarin.Forms.PlatformConfiguration.iOSSpecific.BlurEffectStyle GetBlurEffect(class Xamarin.Forms.IPlatformElementConfiguration`2&lt;class Xamarin.Forms.PlatformConfiguration.iOS, class Xamarin.Forms.VisualElement&gt; config) cil managed" />
@@ -2270,8 +2361,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Returns a value that describes the way that tabs are displayed.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage" Member="M:Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage.GetTabsStyle(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage})" />
       </Member>
@@ -2291,8 +2382,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Hides the tabs on the tabbed page.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage" Member="M:Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage.HideTabs(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage})" />
       </Member>
@@ -2313,9 +2404,9 @@
           <Parameter Name="value" Type="Xamarin.Forms.TabsStyle" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <param name="value">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <param name="value">The new property value to assign.</param>
+          <summary>Sets a value that controls the way that tabs are displayed.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage" Member="M:Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage.SetShowTabs(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage},Xamarin.Forms.TabsStyle)" />
       </Member>
@@ -2335,8 +2426,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Sets tab display to the default style.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage" Member="M:Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage.ShowTabs(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage})" />
       </Member>
@@ -2356,8 +2447,8 @@
           <Parameter Name="config" Type="Xamarin.Forms.IPlatformElementConfiguration&lt;Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage&gt;" RefType="this" />
         </Parameters>
         <Docs>
-          <param name="config">To be added.</param>
-          <summary>To be added.</summary>
+          <param name="config">The platform specific configuration that contains the element on which to perform the operation.</param>
+          <summary>Sets tab display to the respond to user swipes.</summary>
         </Docs>
         <Link Type="Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage" Member="M:Xamarin.Forms.PlatformConfiguration.macOSSpecific.TabbedPage.ShowTabsOnNavigation(Xamarin.Forms.IPlatformElementConfiguration{Xamarin.Forms.PlatformConfiguration.macOS,Xamarin.Forms.TabbedPage})" />
       </Member>

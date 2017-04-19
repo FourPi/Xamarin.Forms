@@ -9,6 +9,7 @@ using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
 using Android.Graphics.Drawables;
+using Android.OS;
 using Android.Support.V4.App;
 using Android.Util;
 using Android.Views;
@@ -112,11 +113,6 @@ namespace Xamarin.Forms.Platform.Android
                     RegisterNavPageCurrent(_currentNavigationPage.CurrentPage);
                 }
 
-                UpdateActionBarBackgroundColor();
-                UpdateActionBarTextColor();
-                UpdateActionBarUpImageColor();
-                UpdateActionBarTitle();
-
             }
         }
 
@@ -210,11 +206,11 @@ namespace Xamarin.Forms.Platform.Android
             {
                 if (animated)
                 {
-                    modalRenderer.ViewGroup.Animate().Alpha(0).ScaleX(0.8f).ScaleY(0.8f).SetDuration(250).SetListener(new GenericAnimatorListener
+					modalRenderer.View.Animate().Alpha(0).ScaleX(0.8f).ScaleY(0.8f).SetDuration(250).SetListener(new GenericAnimatorListener
                     {
                         OnEnd = a =>
                         {
-                            modalRenderer.ViewGroup.RemoveFromParent();
+							modalRenderer.View.RemoveFromParent();
                             modalRenderer.Dispose();
                             source.TrySetResult(modal);
                             CurrentPageController?.SendAppearing();
@@ -223,7 +219,7 @@ namespace Xamarin.Forms.Platform.Android
                 }
                 else
                 {
-                    modalRenderer.ViewGroup.RemoveFromParent();
+					modalRenderer.View.RemoveFromParent();
                     modalRenderer.Dispose();
                     source.TrySetResult(modal);
                     CurrentPageController?.SendAppearing();
@@ -308,6 +304,7 @@ namespace Xamarin.Forms.Platform.Android
         public void UpdateActionBarTextColor()
         {
             SetActionBarTextColor();
+			UpdateActionBarUpImageColor();
         }
 
         protected override void OnBindingContextChanged()
@@ -363,11 +360,12 @@ namespace Xamarin.Forms.Platform.Android
                 else
                 {
                     IMenuItem menuItem = menu.Add(item.Text);
-                    if (!string.IsNullOrEmpty(item.Icon))
+					var icon = item.Icon;
+					if (!string.IsNullOrEmpty(icon))
                     {
-                        var iconBitmap = new BitmapDrawable(_context.Resources, ResourceManager.GetBitmap(_context.Resources, item.Icon));
-                        if (iconBitmap != null && iconBitmap.Bitmap != null)
-                            menuItem.SetIcon(iconBitmap);
+						Drawable iconDrawable = _context.Resources.GetFormsDrawable(icon);
+						if (iconDrawable != null)
+							menuItem.SetIcon(iconDrawable);
                     }
                     menuItem.SetEnabled(controller.IsEnabled);
                     menuItem.SetShowAsAction(ShowAsAction.Always);
@@ -397,12 +395,14 @@ namespace Xamarin.Forms.Platform.Android
         internal void SetPage(Page newRoot)
         {
             var layout = false;
+			List<IVisualElementRenderer> toDispose = null;
+
             if (Page != null)
             {
                 _renderer.RemoveAllViews();
 
-                foreach (IVisualElementRenderer rootRenderer in _navModel.Roots.Select(GetRenderer))
-                    rootRenderer.Dispose();
+				toDispose = _navModel.Roots.Select(Android.Platform.GetRenderer).ToList();
+
                 _navModel = new NavigationModel();
 
                 layout = true;
@@ -422,6 +422,18 @@ namespace Xamarin.Forms.Platform.Android
             _toolbarTracker.Target = newRoot;
 
             UpdateActionBar();
+
+			if (toDispose?.Count > 0)
+			{
+				// Queue up disposal of the previous renderers after the current layout updates have finished
+				new Handler(Looper.MainLooper).Post(() =>
+				{
+					foreach (IVisualElementRenderer rootRenderer in toDispose)
+					{
+						rootRenderer.Dispose();
+					}
+				});
+			}
         }
 
         internal static void SetPageContext(BindableObject bindable, Context context)
@@ -432,9 +444,8 @@ namespace Xamarin.Forms.Platform.Android
         internal void UpdateActionBar()
         {
             if (ActionBar == null) //Fullscreen theme doesn't have action bar
-            {
                 return;
-            }
+
             List<Page> relevantAncestors = AncestorPagesOfPage(_navModel.CurrentPage);
 
             IEnumerable<NavigationPage> navPages = relevantAncestors.OfType<NavigationPage>();
@@ -456,10 +467,7 @@ namespace Xamarin.Forms.Platform.Android
                 throw new InvalidOperationException("NavigationPage must have a root Page before being used. Either call PushAsync with a valid Page, or pass a Page to the constructor before usage.");
             }
 
-
-            UpdateActionBarTitle();
-
-            if (ShouldShowActionBarTitleArea() || tabbedPage != null)
+			if (ShouldShowActionBarTitleArea() || CurrentTabbedPage != null)
                 ShowActionBar();
             else
                 HideActionBar();
@@ -470,8 +478,9 @@ namespace Xamarin.Forms.Platform.Android
 
         internal void UpdateActionBarBackgroundColor()
         {
-            if (!((Activity)_context).ActionBar.IsShowing)
+			if (!ShouldShowActionBarTitleArea())
                 return;
+
             Color colorToUse = Color.Default;
             if (CurrentNavigationPage != null)
             {
@@ -521,14 +530,7 @@ namespace Xamarin.Forms.Platform.Android
             MasterDetailPageToggle.SyncState();
         }
 
-        internal void UpdateNavigationTitleBar()
-        {
 
-            UpdateActionBarTitle();
-            UpdateActionBar();
-            UpdateActionBarUpImageColor();
-
-        }
 
         void AddChild(VisualElement view, bool layout = false)
         {
@@ -542,7 +544,7 @@ namespace Xamarin.Forms.Platform.Android
             if (layout)
                 view.Layout(new Rectangle(0, 0, _context.FromPixels(_renderer.Width), _context.FromPixels(_renderer.Height)));
 
-            _renderer.AddView(renderView.ViewGroup);
+			_renderer.AddView(renderView.View);
         }
 
 #pragma warning disable 618 // This may need to be updated to work with TabLayout/AppCompat
@@ -601,12 +603,12 @@ namespace Xamarin.Forms.Platform.Android
 
         void CurrentNavigationPageOnPopped(object sender, NavigationEventArgs eventArg)
         {
-            UpdateNavigationTitleBar();
+			UpdateActionBar();
         }
 
         void CurrentNavigationPageOnPoppedToRoot(object sender, EventArgs eventArgs)
         {
-            UpdateNavigationTitleBar();
+			UpdateActionBar();
         }
 
         void CurrentNavigationPageOnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -618,17 +620,14 @@ namespace Xamarin.Forms.Platform.Android
             else if (e.PropertyName == NavigationPage.BarBackgroundColorProperty.PropertyName)
                 UpdateActionBarBackgroundColor();
             else if (e.PropertyName == NavigationPage.BarTextColorProperty.PropertyName)
-            {
                 UpdateActionBarTextColor();
-                UpdateActionBarUpImageColor();
-            }
             else if (e.PropertyName == NavigationPage.CurrentPageProperty.PropertyName)
                 RegisterNavPageCurrent(CurrentNavigationPage.CurrentPage);
         }
 
         void CurrentNavigationPageOnPushed(object sender, NavigationEventArgs eventArg)
         {
-            UpdateNavigationTitleBar();
+			UpdateActionBar();
         }
 
         void CurrentTabbedPageChildrenChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -775,19 +774,19 @@ namespace Xamarin.Forms.Platform.Android
                 SetRenderer(modal, modalRenderer);
 
                 if (modal.BackgroundColor == Color.Default && modal.BackgroundImage == null)
-                    modalRenderer.ViewGroup.SetWindowBackground();
+					modalRenderer.View.SetWindowBackground();
             }
             modalRenderer.Element.Layout(new Rectangle(0, 0, _context.FromPixels(_renderer.Width), _context.FromPixels(_renderer.Height)));
-            _renderer.AddView(modalRenderer.ViewGroup);
+			_renderer.AddView(modalRenderer.View);
 
             var source = new TaskCompletionSource<bool>();
             NavAnimationInProgress = true;
             if (animated)
             {
-                modalRenderer.ViewGroup.Alpha = 0;
-                modalRenderer.ViewGroup.ScaleX = 0.8f;
-                modalRenderer.ViewGroup.ScaleY = 0.8f;
-                modalRenderer.ViewGroup.Animate().Alpha(1).ScaleX(1).ScaleY(1).SetDuration(250).SetListener(new GenericAnimatorListener
+				modalRenderer.View.Alpha = 0;
+				modalRenderer.View.ScaleX = 0.8f;
+				modalRenderer.View.ScaleY = 0.8f;
+				modalRenderer.View.Animate().Alpha(1).ScaleX(1).ScaleY(1).SetDuration(250).SetListener(new GenericAnimatorListener
                 {
                     OnEnd = a =>
                     {
@@ -860,8 +859,16 @@ namespace Xamarin.Forms.Platform.Android
 				int actionbarId = _context.Resources.GetIdentifier("action_bar", "id", "android");
 				if(actionbarId > 0)
 				{
-					var toolbar = (Toolbar)((Activity)_context).FindViewById(actionbarId);
-					actionBarTitleTextView = (TextView)toolbar.GetChildAt(0);
+					Toolbar toolbar = (Toolbar)((Activity)_context).FindViewById(actionbarId);
+					
+					for( int i = 0; i < toolbar.ChildCount; i++ )
+					{
+						if( toolbar.GetChildAt(i) is TextView )
+						{
+							actionBarTitleTextView = (TextView)toolbar.GetChildAt(i);
+							break;
+						}
+					}
 				}
 			}
 			else
@@ -919,11 +926,10 @@ namespace Xamarin.Forms.Platform.Android
         {
 
             ReloadToolbarItems();
-            UpdateActionBarHomeAsUp(ActionBar);
-            ActionBar.Show();
+			UpdateActionBarTitle();
             UpdateActionBarBackgroundColor();
             UpdateActionBarTextColor();
-
+			ActionBar.Show();
         }
 
         void ToolbarTrackerOnCollectionChanged(object sender, EventArgs eventArgs)
@@ -1044,6 +1050,50 @@ namespace Xamarin.Forms.Platform.Android
 
         internal class DefaultRenderer : VisualElementRenderer<View>
         {
+			bool _notReallyHandled;
+			internal void NotifyFakeHandling()
+			{
+				_notReallyHandled = true;
+			}
+
+			public override bool DispatchTouchEvent(MotionEvent e)
+			{
+				#region
+				// Normally dispatchTouchEvent feeds the touch events to its children one at a time, top child first,
+				// (and only to the children in the hit-test area of the event) stopping as soon as one of them has handled
+				// the event. 
+
+				// But to be consistent across the platforms, we don't want this behavior; if an element is not input transparent
+				// we don't want an event to "pass through it" and be handled by an element "behind/under" it. We just want the processing
+				// to end after the first non-transparent child, regardless of whether the event has been handled.
+
+				// This is only an issue for a couple of controls; the interactive controls (switch, button, slider, etc) already "handle" their touches 
+				// and the events don't propagate to other child controls. But for image, label, and box that doesn't happen. We can't have those controls 
+				// lie about their events being handled because then the events won't propagate to *parent* controls (e.g., a frame with a label in it would
+				// never get a tap gesture from the label). In other words, we *want* parent propagation, but *do not want* sibling propagation. So we need to short-circuit 
+				// base.DispatchTouchEvent here, but still return "false".
+
+				// Duplicating the logic of ViewGroup.dispatchTouchEvent and modifying it slightly for our purposes is a non-starter; the method is too
+				// complex and does a lot of micro-optimization. Instead, we provide a signalling mechanism for the controls which don't already "handle" touch
+				// events to tell us that they will be lying about handling their event; they then return "true" to short-circuit base.DispatchTouchEvent.
+
+				// The container gets this message and after it gets the "handled" result from dispatchTouchEvent, 
+				// it then knows to ignore that result and return false/unhandled. This allows the event to propagate up the tree.
+				#endregion
+
+				_notReallyHandled = false;
+
+				var result = base.DispatchTouchEvent(e);
+
+				if (result && _notReallyHandled)
+				{
+					// If the child control returned true from its touch event handler but signalled that it was a fake "true", leave the event unhandled
+					// so parent controls have the opportunity
+					return false;
+				}
+
+				return result;
+			}
         }
 
         #region IPlatformEngine implementation

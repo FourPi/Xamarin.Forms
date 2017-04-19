@@ -8,8 +8,13 @@
   <Base>
     <BaseTypeName>System.Enum</BaseTypeName>
   </Base>
+  <Attributes>
+    <Attribute>
+      <AttributeName>System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)</AttributeName>
+    </Attribute>
+  </Attributes>
   <Docs>
-    <summary>To be added.</summary>
+    <summary>For internal use by the Xamarin.Forms platform.</summary>
     <remarks>To be added.</remarks>
   </Docs>
   <Members>
@@ -24,7 +29,7 @@
         <ReturnType>Xamarin.Forms.Internals.FileAccess</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>For internal use by the Xamarin.Forms platform.</summary>
       </Docs>
     </Member>
     <Member MemberName="ReadWrite">
@@ -38,7 +43,7 @@
         <ReturnType>Xamarin.Forms.Internals.FileAccess</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>For internal use by the Xamarin.Forms platform.</summary>
       </Docs>
     </Member>
     <Member MemberName="Write">
@@ -52,7 +57,7 @@
         <ReturnType>Xamarin.Forms.Internals.FileAccess</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>For internal use by the Xamarin.Forms platform.</summary>
       </Docs>
     </Member>
   </Members>

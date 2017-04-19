@@ -337,12 +337,11 @@ namespace Xamarin.Forms
 					return true;
 
 				Element parent = RealParent;
-				while (parent != null)
+				if (parent != null)
 				{
 					var visualElement = parent as VisualElement;
 					if (visualElement != null && visualElement.IsInNativeLayout)
 						return true;
-					parent = parent.RealParent;
 				}
 
 				return false;
@@ -435,7 +434,8 @@ namespace Xamarin.Forms
 			}
 		}
 
-		void IVisualElementController.NativeSizeChanged()
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		public void NativeSizeChanged()
 		{
 			InvalidateMeasureInternal(InvalidationTrigger.MeasureChanged);
 		}
@@ -457,7 +457,7 @@ namespace Xamarin.Forms
 
 		public event EventHandler<FocusEventArgs> Focused;
 
-		[Obsolete("Use Measure")]
+		[Obsolete("OnSizeRequest is obsolete as of version 2.2.0. Please use OnMeasure instead.")]
 		public virtual SizeRequest GetSizeRequest(double widthConstraint, double heightConstraint)
 		{
 			SizeRequest cachedResult;
@@ -622,7 +622,7 @@ namespace Xamarin.Forms
 		{
 		}
 
-		[Obsolete("Use OnMeasure")]
+		[Obsolete("OnSizeRequest is obsolete as of version 2.2.0. Please use OnMeasure instead.")]
 		protected virtual SizeRequest OnSizeRequest(double widthConstraint, double heightConstraint)
 		{
 			if (Platform == null || !IsPlatformEnabled)
